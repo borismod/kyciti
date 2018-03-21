@@ -7,11 +7,20 @@ namespace kyciti.Tests.CrunchBase
     public class CompanyDataRetrieverTests
     {
         [Test]
-        public void GetCompanyData_ReturnsNotNull()
+        public void GetCompanyData_CrunchBase_ReturnsNotNull()
         {
             var companyDataRetriever = new CompanyDataRetriever();
-            var companyData = companyDataRetriever.GetCompanyData();
+            var companyData = companyDataRetriever.GetCompanyData("CrunchBase");
 
+            Assert.IsNotNull(companyData);
+        }
+
+        [Test]
+        public void GetCompanyData_Unknown_ReturnsNotNull()
+        {
+            var companyDataRetriever = new CompanyDataRetriever();
+
+            var companyData = companyDataRetriever.GetCompanyData("Unknown");
 
             Assert.IsNotNull(companyData);
         }
