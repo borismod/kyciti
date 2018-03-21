@@ -207,6 +207,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyData.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\CompanyScore.cs" />
     <Compile Include="Controllers\CompanyValuationService.cs" />
     <Compile Include="Controllers\ICompanyKeyPersonsRetriever.cs" />
     <Compile Include="Controllers\ICompanyStockTickerRetriever.cs" />

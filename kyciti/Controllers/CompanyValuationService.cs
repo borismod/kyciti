@@ -13,7 +13,8 @@ namespace kyciti.Controllers
         private readonly ISearchEngineService _searchEngineService;
 
         public CompanyValuationService(ICompanyKeyPersonsRetriever companyKeyPersonsRetriever,
-            ICompanyStockTickerRetriever companyStockTickerRetriever, IKeyWordsProvier keyWordsProvier,
+            ICompanyStockTickerRetriever companyStockTickerRetriever, 
+            IKeyWordsProvier keyWordsProvier,
             ISearchEngineService searchEngineService)
         {
             _companyKeyPersonsRetriever = companyKeyPersonsRetriever;
@@ -26,7 +27,7 @@ namespace kyciti.Controllers
         {
             var stockTicker = _companyStockTickerRetriever.GetCompanyStockTicker(companyName);
             var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).Take(3).ToArray();
-            var keyWords = _keyWordsProvier.GetKeyWords().Take(2).ToList();
+            var keyWords = _keyWordsProvier.GetKeyWords().ToList();
 
             var companyData = new CompanyData
             {
@@ -47,36 +48,33 @@ namespace kyciti.Controllers
                     var results = new List<SearchEngineResult>();
                     foreach (var keyWord in keyWordGroup)
                     {
-                        List<SearchEngineResult> collection = await _searchEngineService.Search($"{keyPerson.Name} {keyWord.Word}");
+                        List<SearchEngineResult> collection = await _searchEngineService.Search(keyPerson.Name, keyWord.Word);
                         results.AddRange(collection);
                     }
 
                     var passed = !results.Any();
-                    person.Scores.Add(new PersonScore
+                    var personScore = new PersonScore
                     {
                         Category = keyWordGroup.Key,
                         Passed = passed,
                         Sources = results
-                    });
+                    };
+
+                    person.Scores.Add(personScore);
 
                     if (passed) totalPassed++;
 
                     companyData.Members.Add(person);
-                    companyData.Scores.Add(new CompanyScore
-                    {
-                        Category = keyWordGroup.Key,
-                        Score = (double)totalPassed / (double)keyPersons.Length
-                    });
                 }
+
+                companyData.Scores.Add(new CompanyScore
+                {
+                    Category = keyWordGroup.Key,
+                    Score = (double)totalPassed / (double)keyPersons.Length
+                });
             }
 
             return companyData;
         }
-    }
-
-    public class CompanyScore
-    {
-        public string Category { get; set; }
-        public double Score { get; set; }
     }
 }

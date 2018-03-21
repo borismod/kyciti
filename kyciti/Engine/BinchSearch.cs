@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace kyciti.CrunchBase
             _random = new Random();
         }
 
-        public async Task<List<SearchEngineResult>> BingWebSearchAsync(string searchQuery)
+        public async Task<List<SearchEngineResult>> BingWebSearchAsync(string searchQuery, string keyWord)
         {
             Thread.Sleep(500);
 
@@ -49,6 +50,11 @@ namespace kyciti.CrunchBase
             {
                 var name = item["name"].ToString();
                 var url = item["url"].ToString();
+                var snippet = item["snippet"].ToString();
+                if (!name.Contains(keyWord) && !snippet.Contains(keyWord))
+                {
+                    continue;
+                }
 
                 searchResults.Add(new SearchEngineResult
                 {
