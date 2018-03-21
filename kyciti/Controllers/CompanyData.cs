@@ -9,10 +9,17 @@ namespace kyciti.Controllers {
     }
 
     public class Person {
+        public Person()
+        {
+            Scores = new List<PersonScore>();
+        }
+
         public string Name { get; set; }
         public string Title { get; set; }
+        public string Category { get; set; }
         public RiskValuations RiskValuation { get; set; }
         public Dictionary<string, List<string>> ArticleLinks { get; set; }
+        public List<PersonScore> Scores { get; set; }
     }
 
     public class CompanyData {
