@@ -208,12 +208,18 @@
     <Compile Include="Controllers\CompanyData.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyValuationService.cs" />
+    <Compile Include="Controllers\ICompanyKeyPersonsRetriever.cs" />
+    <Compile Include="Controllers\ICompanyStockTickerRetriever.cs" />
+    <Compile Include="Controllers\IKeyWordsProvier.cs" />
     <Compile Include="Controllers\ISearchEngineService.cs" />
+    <Compile Include="Controllers\KeyWord.cs" />
+    <Compile Include="Controllers\PersonScore.cs" />
     <Compile Include="Controllers\ValuationController.cs" />
     <Compile Include="Engine\BinchSearch.cs" />
     <Compile Include="Engine\CompanyDataRetriever.cs" />
     <Compile Include="Engine\CompanyKeyPersonsRetriever.cs" />
     <Compile Include="Engine\CrunchBaseModels.cs" />
+    <Compile Include="Engine\KeyPerson.cs" />
     <Compile Include="Engine\SearchEngineResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

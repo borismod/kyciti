@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -9,26 +11,46 @@ namespace kyciti.CrunchBase
 {
     internal class BingSearch
     {
-        private static readonly string accessKey = "5d56a94949504ca09c8c6a42fb4f0eb6";
-        private static readonly string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";
-
-        public List<SearchEngineResult> BingWebSearch(string searchQuery)
+        private static readonly string[] accessKeys =
         {
+            "5d56a94949504ca09c8c6a42fb4f0eb6",
+            "fed807af03ab4746aa88c5cd4640e4d7",
+            "82fee6f2bf7d44b5bb9fdc20a277d0cb",
+            "57d73ad286ee40b4b0b5e483c6011d30" 
+        };
+
+        private static readonly string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";
+        private readonly Random _random;
+
+        public BingSearch()
+        {
+            _random = new Random();
+        }
+
+        public async Task<List<SearchEngineResult>> BingWebSearchAsync(string searchQuery)
+        {
+            Thread.Sleep(500);
+
             var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
             var request = WebRequest.Create(uriQuery);
-            request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            var response = (HttpWebResponse) request.GetResponseAsync().Result;
+            request.Headers["Ocp-Apim-Subscription-Key"] = GetAccessKey();
+            var response = (HttpWebResponse) await  request.GetResponseAsync();
             var json = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
             var obj = JsonConvert.DeserializeObject<dynamic>(json);
-            var pages = (JArray) obj["webPages"]["value"];
+            var webPages = obj["webPages"];
+            if (webPages == null)
+            {
+                return new List<SearchEngineResult>();
+            }
+            var pages = (JArray) webPages["value"];
             List<SearchEngineResult> searchResults = new List<SearchEngineResult>();
             foreach (dynamic item in pages)
             {
                 var name = item["name"].ToString();
                 var url = item["url"].ToString();
 
-                searchResults.Add(new SearchEngineResult()
+                searchResults.Add(new SearchEngineResult
                 {
                     Title = name,
                     Url = url
@@ -36,6 +58,12 @@ namespace kyciti.CrunchBase
             }
 
             return searchResults;
+        }
+
+        private string GetAccessKey()
+        {
+            var accessKeyIndex = _random.Next(accessKeys.Length - 1);
+            return accessKeys[accessKeyIndex];
         }
     }
 }

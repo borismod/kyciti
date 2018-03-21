@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using kyciti.CrunchBase;
 
 namespace kyciti.Controllers
 {
     public interface ISearchEngineService
     {
-        List<SearchEngineResult> Search(string query);
+        Task<List<SearchEngineResult>> Search(string query);
     }
 
     public class SearchEngineService : ISearchEngineService
     {
-        public List<SearchEngineResult> Search(string query)
+        public async Task<List<SearchEngineResult>> Search(string query)
         {
             var bingSearch = new BingSearch();
-            return bingSearch.BingWebSearch(query);
+            return await bingSearch.BingWebSearchAsync(query);
         }
     }
 }

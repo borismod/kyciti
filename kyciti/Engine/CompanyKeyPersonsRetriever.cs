@@ -20,17 +20,8 @@ namespace kyciti.CrunchBase
                 {
                     Category = "Board",
                     Title = i.Properties.Title,
-                    FirstName = i.Properties.FirstName,
-                    LastName = i.Properties.LastName
+                    Name = i.Properties.FirstName,
                 }).ToArray();
         }
-    }
-
-    public class KeyPerson
-    {
-        public string Category { get; set; }
-        public string Title { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
     }
 }

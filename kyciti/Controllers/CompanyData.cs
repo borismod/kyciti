@@ -23,6 +23,11 @@ namespace kyciti.Controllers {
     }
 
     public class CompanyData {
+        public CompanyData()
+        {
+            Scores = new List<CompanyScore>();
+            Members = new List<Person>();
+        }
 
         public static CompanyData GetMockData(string id, bool addValuation) {
             if (id.ToLower() == "bezeq") {
@@ -60,5 +65,6 @@ namespace kyciti.Controllers {
         public string Name { get; set; }
         public RiskValuations RiskValuation { get; set; }
         public List<Person> Members { get; set; }
+        public List<CompanyScore> Scores { get; set; }
     }
 }

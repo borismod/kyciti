@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using kyciti.CrunchBase;
 
 namespace kyciti.Controllers
@@ -21,41 +22,51 @@ namespace kyciti.Controllers
             _searchEngineService = searchEngineService;
         }
 
-        public CompanyData GetCompanyValuationData(string companyName)
+        public async Task<CompanyData> GetCompanyValuationData(string companyName)
         {
             var stockTicker = _companyStockTickerRetriever.GetCompanyStockTicker(companyName);
-            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker);
-            KeyWord[] keyWords = _keyWordsProvier.GetKeyWords();
+            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).Take(3).ToArray();
+            var keyWords = _keyWordsProvier.GetKeyWords().Take(2).ToList();
 
             var companyData = new CompanyData
             {
                 Name = companyName
             };
 
-            foreach (var keyPerson in keyPersons)
+            foreach (var keyWordGroup in keyWords.GroupBy(k => k.Category))
             {
-                var person = new Person
+                var totalPassed = 0;
+                foreach (var keyPerson in keyPersons)
                 {
-                    Name = $"{keyPerson.FirstName} {keyPerson.LastName}",
-                    Title = keyPerson.Title
-                };
-
-                foreach (IGrouping<string, KeyWord> keyWordGroup in keyWords.GroupBy(k=>k.Category))
-                {
-                    List<SearchEngineResult> results = new List<SearchEngineResult>();
-                    foreach (KeyWord keyWord in keyWordGroup)
+                    var person = new Person
                     {
-                        results.AddRange(_searchEngineService.Search($"{keyPerson.FirstName} {keyPerson.LastName} {keyWord.Word}"));
+                        Name = $"{keyPerson.Name}",
+                        Title = keyPerson.Title
+                    };
+
+                    var results = new List<SearchEngineResult>();
+                    foreach (var keyWord in keyWordGroup)
+                    {
+                        List<SearchEngineResult> collection = await _searchEngineService.Search($"{keyPerson.Name} {keyWord.Word}");
+                        results.AddRange(collection);
                     }
 
+                    var passed = !results.Any();
                     person.Scores.Add(new PersonScore
                     {
                         Category = keyWordGroup.Key,
-                        Passed = !results.Any(),
+                        Passed = passed,
                         Sources = results
                     });
 
+                    if (passed) totalPassed++;
+
                     companyData.Members.Add(person);
+                    companyData.Scores.Add(new CompanyScore
+                    {
+                        Category = keyWordGroup.Key,
+                        Score = (double)totalPassed / (double)keyPersons.Length
+                    });
                 }
             }
 
@@ -63,10 +74,9 @@ namespace kyciti.Controllers
         }
     }
 
-    public class PersonScore
+    public class CompanyScore
     {
         public string Category { get; set; }
-        public bool Passed { get; set; }
-        public List<SearchEngineResult> Sources { get; set; }
+        public double Score { get; set; }
     }
 }
