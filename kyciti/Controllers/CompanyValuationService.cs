@@ -13,7 +13,7 @@ namespace kyciti.Controllers
         private readonly ISearchEngineService _searchEngineService;
 
         public CompanyValuationService(ICompanyKeyPersonsRetriever companyKeyPersonsRetriever,
-            ICompanyStockTickerRetriever companyStockTickerRetriever, 
+            ICompanyStockTickerRetriever companyStockTickerRetriever,
             IKeyWordsProvier keyWordsProvier,
             ISearchEngineService searchEngineService)
         {
@@ -39,16 +39,12 @@ namespace kyciti.Controllers
                 var totalPassed = 0;
                 foreach (var keyPerson in keyPersons)
                 {
-                    var person = new Person
-                    {
-                        Name = $"{keyPerson.Name}",
-                        Title = keyPerson.Title
-                    };
+                    var person = GetPerson(keyPerson, companyData);
 
                     var results = new List<SearchEngineResult>();
                     foreach (var keyWord in keyWordGroup)
                     {
-                        List<SearchEngineResult> collection = await _searchEngineService.Search(keyPerson.Name, keyWord.Word);
+                        var collection = await _searchEngineService.Search(keyPerson.Name, keyWord.Word);
                         results.AddRange(collection);
                     }
 
@@ -70,11 +66,25 @@ namespace kyciti.Controllers
                 companyData.Scores.Add(new CompanyScore
                 {
                     Category = keyWordGroup.Key,
-                    Score = (double)totalPassed / (double)keyPersons.Length
+                    Score = totalPassed / (double) keyPersons.Length
                 });
             }
 
             return companyData;
+        }
+
+        private static Person GetPerson(KeyPerson keyPerson, CompanyData companyData)
+        {
+            var existingPerson = companyData.Members.FirstOrDefault(p => p.Name == keyPerson.Name);
+
+            if (existingPerson != null) return existingPerson;
+
+            var person = new Person
+            {
+                Name = $"{keyPerson.Name}",
+                Title = keyPerson.Title
+            };
+            return person;
         }
     }
 }

@@ -74,8 +74,7 @@ namespace kyciti.Controllers
         }
 
         public string Name { get; set; }
-        public RiskValuations RiskValuation { get; set; }
         public List<Person> Members { get; set; }
-        public List<CompanyScore> Scores { get; set; }
+        public List<CompanyScore> Scores { get; }
     }
 }
