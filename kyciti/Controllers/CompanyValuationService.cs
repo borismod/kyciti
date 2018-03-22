@@ -59,8 +59,6 @@ namespace kyciti.Controllers
                     person.Scores.Add(personScore);
 
                     if (passed) totalPassed++;
-
-                    companyData.Members.Add(person);
                 }
 
                 companyData.Scores.Add(new CompanyScore
@@ -77,13 +75,19 @@ namespace kyciti.Controllers
         {
             var existingPerson = companyData.Members.FirstOrDefault(p => p.Name == keyPerson.Name);
 
-            if (existingPerson != null) return existingPerson;
+            if (existingPerson != null)
+            {
+                return existingPerson;
+            }
 
             var person = new Person
             {
                 Name = $"{keyPerson.Name}",
                 Title = keyPerson.Title
             };
+
+            companyData.Members.Add(person);
+
             return person;
         }
     }
