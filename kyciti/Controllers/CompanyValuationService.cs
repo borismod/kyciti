@@ -64,9 +64,19 @@ namespace kyciti.Controllers
                 companyData.Scores.Add(new CompanyScore
                 {
                     Category = keyWordGroup.Key,
-                    Score = totalPassed / (double) keyPersons.Length
+                    // number of failed
+                    Score = keyPersons.Length - totalPassed
                 });
             }
+
+            foreach (var companyDataMember in companyData.Members)
+            {
+                companyDataMember.TotalScore = companyDataMember.Scores.Count(s => !s.Passed);
+            }
+
+            var totalFailures = companyData.Members.Sum(m => m.TotalScore);
+            var maxRisk = companyData.Members.Count * companyData.Scores.Count;
+            companyData.TotalScore = 100.0 *  totalFailures / maxRisk;
 
             return companyData;
         }
