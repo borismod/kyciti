@@ -92,7 +92,7 @@ namespace kyciti.Controllers
 
             var person = new Person
             {
-                Name = $"{keyPerson.Name}",
+                Name = keyPerson.Name,
                 Title = keyPerson.Title
             };
 

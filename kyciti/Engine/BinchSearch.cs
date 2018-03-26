@@ -32,7 +32,7 @@ namespace kyciti.CrunchBase
         {
             Thread.Sleep(500);
 
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
+            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString($"{searchQuery} {keyWord}");
             var request = WebRequest.Create(uriQuery);
             request.Headers["Ocp-Apim-Subscription-Key"] = GetAccessKey();
             var response = (HttpWebResponse) await  request.GetResponseAsync();

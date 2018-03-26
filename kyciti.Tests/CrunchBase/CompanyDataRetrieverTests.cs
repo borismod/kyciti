@@ -9,7 +9,7 @@ namespace kyciti.Tests.CrunchBase
         [Test]
         public void GetCompanyData_CrunchBase_ReturnsNotNull()
         {
-            var companyDataRetriever = new CompanyDataRetriever();
+            var companyDataRetriever = new MockCompanyDataRetriever();
             var companyData = companyDataRetriever.GetCompanyData("CrunchBase");
 
             Assert.IsNotNull(companyData);
@@ -18,7 +18,7 @@ namespace kyciti.Tests.CrunchBase
         [Test]
         public void GetCompanyData_Unknown_ReturnsNotNull()
         {
-            var companyDataRetriever = new CompanyDataRetriever();
+            var companyDataRetriever = new MockCompanyDataRetriever();
 
             var companyData = companyDataRetriever.GetCompanyData("Unknown");
 

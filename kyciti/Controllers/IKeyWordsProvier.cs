@@ -56,6 +56,11 @@
                     Category = "terror",
                     Word = "terror"
                 },
+                new KeyWord
+                {
+                    Category = "bribe",
+                    Word = "bribe"
+                },
                 //new KeyWord
                 //{
                 //    Category = "terror",

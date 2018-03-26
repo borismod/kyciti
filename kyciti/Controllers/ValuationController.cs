@@ -17,7 +17,7 @@ namespace kyciti.Controllers
                 new CompanyStockTickerRetriever(), new KeyWordsProvier(), new SearchEngineService());
         }
 
-        // GET api/values/5
+        // GET api/valuation/bezeq
         [HttpGet]
         public async Task<CompanyData> Get(string id)
         {

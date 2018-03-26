@@ -9,7 +9,7 @@ namespace kyciti.CrunchBase
         Company GetCompanyData(string companyName);
     }
 
-    public class CompanyDataRetriever : ICompanyDataRetriever
+    public class MockCompanyDataRetriever : ICompanyDataRetriever
     {
         public Company GetCompanyData(string companyName)
         {
