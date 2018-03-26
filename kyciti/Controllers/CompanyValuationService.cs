@@ -26,12 +26,13 @@ namespace kyciti.Controllers
         public async Task<CompanyData> GetCompanyValuationData(string companyName)
         {
             var stockTicker = _companyStockTickerRetriever.GetCompanyStockTicker(companyName);
-            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).Take(3).ToArray();
-            var keyWords = _keyWordsProvier.GetKeyWords().ToList();
+            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).Take(5).ToArray();
+            var keyWords = _keyWordsProvier.GetKeyWords();
 
             var companyData = new CompanyData
             {
-                Name = companyName
+                Name = companyName,
+                Category = "Corporate"
             };
 
             foreach (var keyWordGroup in keyWords.GroupBy(k => k.Category))
@@ -65,7 +66,7 @@ namespace kyciti.Controllers
                 {
                     Category = keyWordGroup.Key,
                     // number of failed
-                    Score = keyPersons.Length - totalPassed
+                    Score = keyPersons.Count() - totalPassed
                 });
             }
 

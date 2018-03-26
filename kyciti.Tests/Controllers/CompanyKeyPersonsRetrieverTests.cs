@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace kyciti.Tests.Controllers
 {
     [TestFixture]
-    public class ICompanyKeyPersonsRetrieverTests
+    public class CompanyKeyPersonsRetrieverTests
     {
         [Test]
         [Ignore("ignore")]

@@ -26,6 +26,7 @@ namespace kyciti.Controllers
             return new CompanyData
             {
                 Name = companyName,
+                Category = "Corporate",
                 Members = members
             };
         }

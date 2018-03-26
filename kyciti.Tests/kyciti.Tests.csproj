@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ICompanyKeyPersonsRetrieverTests.cs" />
+    <Compile Include="Controllers\CompanyKeyPersonsRetrieverTests.cs" />
+    <Compile Include="Controllers\CompanyStockTickerRetrieverTests.cs" />
     <Compile Include="CrunchBase\CompanyDataRetrieverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

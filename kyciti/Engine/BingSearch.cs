@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using kyciti.CrunchBase;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace kyciti.CrunchBase
+namespace kyciti.Engine
 {
     internal class BingSearch
     {
@@ -35,7 +35,7 @@ namespace kyciti.CrunchBase
             var uriQuery = uriBase + "?q=" + Uri.EscapeDataString($"{searchQuery} {keyWord}");
             var request = WebRequest.Create(uriQuery);
             request.Headers["Ocp-Apim-Subscription-Key"] = GetAccessKey();
-            var response = (HttpWebResponse) await  request.GetResponseAsync();
+            var response = (HttpWebResponse) await request.GetResponseAsync();
             var json = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
             var obj = JsonConvert.DeserializeObject<dynamic>(json);
@@ -51,16 +51,17 @@ namespace kyciti.CrunchBase
                 var name = item["name"].ToString();
                 var url = item["url"].ToString();
                 var snippet = item["snippet"].ToString();
-                if (!name.Contains(keyWord) && !snippet.Contains(keyWord))
-                {
-                    continue;
-                }
 
-                searchResults.Add(new SearchEngineResult
+                if ( (name.Contains(keyWord) || snippet.Contains(keyWord))
+                    && (name.Contains(searchQuery) || snippet.Contains(searchQuery)))
                 {
-                    Title = name,
-                    Url = url
-                });
+                    searchResults.Add(new SearchEngineResult
+                    {
+                        Title = name,
+                        Snippet = snippet,
+                        Url = url
+                    });
+                }
             }
 
             return searchResults;

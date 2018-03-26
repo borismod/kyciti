@@ -74,6 +74,7 @@ namespace kyciti.Controllers
             }
         }
 
+        public string Category { get; set; }
         public string Name { get; set; }
         public List<Person> Members { get; set; }
         public List<CompanyScore> Scores { get; }
