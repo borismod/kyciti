@@ -52,7 +52,7 @@ namespace kyciti.Engine
                 var url = item["url"].ToString();
                 var snippet = item["snippet"].ToString();
 
-                if ( (name.Contains(keyWord) || snippet.Contains(keyWord))
+                if ( (name.Contains("arrested") || snippet.Contains("arrested"))
                     && (name.Contains(searchQuery) || snippet.Contains(searchQuery)))
                 {
                     searchResults.Add(new SearchEngineResult
