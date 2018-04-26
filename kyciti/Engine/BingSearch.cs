@@ -28,8 +28,6 @@ namespace kyciti.Engine
 
         public async Task<List<SearchEngineResult>> BingWebSearchAsync(string searchQuery, string keyWord)
         {
-            Thread.Sleep(500);
-
             var uriQuery = uriBase + "?q=" + Uri.EscapeDataString($"{searchQuery} {keyWord}");
             var request = WebRequest.Create(uriQuery);
             request.Headers["Ocp-Apim-Subscription-Key"] = GetAccessKey();

@@ -27,7 +27,7 @@ namespace kyciti.Controllers
         public async Task<CompanyData> GetCompanyValuationData(string companyName)
         {
             var stockTicker = _companyStockTickerRetriever.GetCompanyStockTicker(companyName);
-            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).Take(5).ToArray();
+            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).ToArray();
             var keyWords = _keyWordsProvier.GetKeyWords();
 
             var companyData = new CompanyData
