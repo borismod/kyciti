@@ -14,10 +14,8 @@ namespace kyciti.Engine
     {
         private static readonly string[] accessKeys =
         {
-            "5d56a94949504ca09c8c6a42fb4f0eb6",
-            "fed807af03ab4746aa88c5cd4640e4d7",
-            "82fee6f2bf7d44b5bb9fdc20a277d0cb",
-            "57d73ad286ee40b4b0b5e483c6011d30" 
+            "bdf8e530eb0a4af2bc839a6bc5fce1db",
+            "64a0684cac9143df89920218060b5b67"
         };
 
         private static readonly string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";
