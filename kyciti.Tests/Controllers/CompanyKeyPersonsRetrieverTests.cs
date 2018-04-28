@@ -1,4 +1,5 @@
-﻿using kyciti.Controllers;
+﻿using Autofac;
+using kyciti.Controllers;
 using NUnit.Framework;
 
 namespace kyciti.Tests.Controllers
@@ -10,7 +11,10 @@ namespace kyciti.Tests.Controllers
         [Ignore("ignore")]
         public void Test()
         {
-            var companyKeyPersonsRetriever = new CompanyKeyPersonsRetriever();
+            var configureContainer = DependencyResolverConfig.ConfigureContainer();
+
+            var companyKeyPersonsRetriever = configureContainer.Resolve<ICompanyKeyPersonsRetriever>();
+
             var keyPersons = companyKeyPersonsRetriever.GetKeyPersons("GOOGL.OQ");
 
             Assert.IsNotNull(keyPersons);

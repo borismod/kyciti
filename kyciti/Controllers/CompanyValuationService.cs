@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using kyciti.CrunchBase;
 using kyciti.Engine;
 using kyciti.Models;
+using log4net;
 
 namespace kyciti.Controllers
 {
@@ -18,23 +19,28 @@ namespace kyciti.Controllers
         private readonly ICompanyKeyPersonsRetriever _companyKeyPersonsRetriever;
         private readonly ICompanyStockTickerRetriever _companyStockTickerRetriever;
         private readonly IKeyWordsProvier _keyWordsProvier;
-        private readonly ISearchEngineService _searchEngineService;
+        private readonly IPersonEvaluationService _personEvaluationService;
+        private readonly ILog _log;
 
         public CompanyValuationService(ICompanyKeyPersonsRetriever companyKeyPersonsRetriever,
             ICompanyStockTickerRetriever companyStockTickerRetriever,
             IKeyWordsProvier keyWordsProvier,
-            ISearchEngineService searchEngineService)
+            IPersonEvaluationService personEvaluationService, 
+            ILog log)
         {
             _companyKeyPersonsRetriever = companyKeyPersonsRetriever;
             _companyStockTickerRetriever = companyStockTickerRetriever;
             _keyWordsProvier = keyWordsProvier;
-            _searchEngineService = searchEngineService;
+            _personEvaluationService = personEvaluationService;
+            _log = log;
         }
 
         public async Task<CompanyData> GetCompanyValuationData(string companyName)
         {
+            _log.Info($"Start valuation for {companyName}");
+
             var stockTicker = _companyStockTickerRetriever.GetCompanyStockTicker(companyName);
-            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).ToArray();
+            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).Take(10).ToArray();
             var keyWords = _keyWordsProvier.GetKeyWords();
 
             var companyData = new CompanyData
@@ -53,7 +59,7 @@ namespace kyciti.Controllers
                     var results = new List<SearchEngineResult>();
                     foreach (var keyWord in keyWordGroup)
                     {
-                        var collection = await _searchEngineService.Search(keyPerson.Name, keyWord.Word);
+                        List<SearchEngineResult> collection = await _personEvaluationService.EvaluatePersonAsync(keyPerson.Name, keyWord.Word);
                         results.AddRange(collection);
                     }
 
@@ -87,6 +93,8 @@ namespace kyciti.Controllers
             var totalFailures = companyData.Members.Sum(m => m.TotalScore);
             var maxRisk = companyData.Members.Count * companyData.Scores.Count;
             companyData.TotalScore = 100.0 *  totalFailures / maxRisk;
+
+            _log.Info($"Finish valuation for {companyName} score {companyData.TotalScore}");
 
             return companyData;
         }

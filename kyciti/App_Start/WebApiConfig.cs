@@ -1,16 +1,15 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using System.Net.Http.Headers;
+using Autofac;
 using Autofac.Integration.WebApi;
 
 namespace kyciti
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static void Register(HttpConfiguration config, IContainer container)
         {
-            var container = DependencyResolverConfig.ConfigureContainer();
-
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
             // Web API configuration and services

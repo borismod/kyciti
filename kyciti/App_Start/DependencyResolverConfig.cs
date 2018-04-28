@@ -22,6 +22,8 @@ namespace kyciti
                 .AsImplementedInterfaces()
                 .SingleInstance();
 
+            containerBuilder.RegisterModule<LoggingModule>();
+
             containerBuilder.RegisterApiControllers(typeof(ValuationController).Assembly);
 
             return containerBuilder.Build();

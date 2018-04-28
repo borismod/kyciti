@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using kyciti.Models;
 
@@ -6,13 +7,14 @@ namespace kyciti.Controllers
 {
     public interface ICashedValuationService
     {
-        Task<CompanyData> GetCachedValudationData(string id);
+        Task<CompanyData> GetCachedValudationData(string companyName);
     }
 
     // ReSharper disable once ClassNeverInstantiated.Global
     public class CashedValuationService : ICashedValuationService
     {
-        private readonly Dictionary<string, CompanyData> _companyDatas = new Dictionary<string, CompanyData>();
+        private readonly ConcurrentDictionary<string, CompanyData> _companyDatas =
+            new ConcurrentDictionary<string, CompanyData>(StringComparer.OrdinalIgnoreCase);
 
         private readonly ICompanyValuationService _companyValuationService;
 
@@ -21,16 +23,15 @@ namespace kyciti.Controllers
             _companyValuationService = companyValuationService;
         }
 
-        public async Task<CompanyData> GetCachedValudationData(string id)
+        public async Task<CompanyData> GetCachedValudationData(string companyName)
         {
-            if (_companyDatas.ContainsKey(id))
+            if (!_companyDatas.ContainsKey(companyName))
             {
-                return _companyDatas[id];
+                var companyData = await _companyValuationService.GetCompanyValuationData(companyName);
+                _companyDatas[companyName] = companyData;
             }
 
-            var companyData = await _companyValuationService.GetCompanyValuationData(id);
-            _companyDatas[id] = companyData;
-            return companyData;
+            return _companyDatas[companyName];
         }
     }
 }

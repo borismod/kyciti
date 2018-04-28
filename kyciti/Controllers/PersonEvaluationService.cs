@@ -36,7 +36,7 @@ namespace kyciti.Controllers
         private bool HasRelevantSentences(string personFullName, string evaluationCategory,
             SearchEngineResult searchEngineResult)
         {
-            HtmlDocument htmlDocument = _htmlDocumentLoader.LoaderFromUrl(searchEngineResult.Url);
+            HtmlDocument htmlDocument = _htmlDocumentLoader.LoadFromUrl(searchEngineResult.Url);
             string text = _htmlSanitizer.SanitizeHtmlDocument(htmlDocument);
             string[] sentences = _textSentenceSplitter.SplitTextToSentences(text);
             bool hasRelevantSentences = sentences.Any(s => s.Contains(personFullName) && s.Contains(evaluationCategory));

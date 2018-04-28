@@ -12,6 +12,7 @@ namespace kyciti.Controllers
         Task<List<SearchEngineResult>> Search(string query, string keyWord);
     }
 
+    // ReSharper disable once UnusedMember.Global
     public class SearchEngineService : ISearchEngineService
     {
         public async Task<List<SearchEngineResult>> Search(string query, string keyWord)

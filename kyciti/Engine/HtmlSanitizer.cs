@@ -16,6 +16,11 @@ namespace kyciti.Engine
 
         public string SanitizeHtmlDocument(HtmlDocument document)
         {
+            if (document == null)
+            {
+                return string.Empty;
+            }
+
             RemoveBlackListNodes(document);
 
             LeaveWhiteListNodes(document);

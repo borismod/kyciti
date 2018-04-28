@@ -82,6 +82,7 @@
     <Compile Include="App_Start\DependencyResolverConfigTests.cs" />
     <Compile Include="Controllers\CompanyKeyPersonsRetrieverTests.cs" />
     <Compile Include="Controllers\CompanyStockTickerRetrieverTests.cs" />
+    <Compile Include="Controllers\CompanyValuationServiceTests.cs" />
     <Compile Include="Controllers\PersonEvaluationServiceTests.cs" />
     <Compile Include="CrunchBase\CompanyDataRetrieverTests.cs" />
     <Compile Include="Engine\HtmlSanitizerTests.cs" />

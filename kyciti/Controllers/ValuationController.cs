@@ -10,13 +10,13 @@ namespace kyciti.Controllers
     [EnableCors("*", "*", "*")]
     public class ValuationController : ApiController
     {
-        private static readonly ILog Logger = LogManager.GetLogger( typeof(ValuationController));
-
+        private readonly ILog _logger;
         private readonly ICashedValuationService _cashedValuationService;
 
-        public ValuationController(ICashedValuationService cashedValuationService)
+        public ValuationController(ICashedValuationService cashedValuationService, ILog logger)
         {
             _cashedValuationService = cashedValuationService;
+            _logger = logger;
         }
 
         // GET api/valuation/bezeq
@@ -29,7 +29,7 @@ namespace kyciti.Controllers
             }
             catch (Exception exception)
             {
-                Logger.Error($"Failed to valuate {id}", exception);
+                _logger.Error($"Failed to valuate {id}", exception);
                 throw;
             }
         }

@@ -3,20 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using kyciti.CrunchBase;
+using log4net;
 
 namespace kyciti.Controllers
 {
     public class CompanyKeyPersonsRetriever : ICompanyKeyPersonsRetriever
     {
+        private readonly ILog _logger;
+
+        public CompanyKeyPersonsRetriever(ILog logger)
+        {
+            _logger = logger;
+        }
+
         public List<KeyPerson> GetKeyPersons(string stockTicker)
         {
-            var res = new WebClient()
-                .DownloadString("https://www.reuters.com/finance/stocks/company-officers/" + stockTicker);
-            res = Clean(res);
+            string html;
+            try
+            {
+                html = DownloadHtml(stockTicker);
+            }
+            catch (WebException webException)
+            {
+                _logger.Warn($"Could not find company {stockTicker}", webException);
+                return new List<KeyPerson>();
+            }
+            
+            html = Clean(html);
 
             var keyPersons = new List<KeyPerson>();
 
-            var parts = res.Split(new[] {"<td><h2 class=\"officers\">"}, StringSplitOptions.None);
+            var parts = html.Split(new[] {"<td><h2 class=\"officers\">"}, StringSplitOptions.None);
             for (var i = 1; i < parts.Length; i++)
             {
                 var innerParts = parts[i].Split(new[] {"class=\"link\">"}, StringSplitOptions.None);
@@ -43,6 +60,13 @@ namespace kyciti.Controllers
             }
 
             return keyPersons;
+        }
+
+        private static string DownloadHtml(string stockTicker)
+        {
+            string res = new WebClient()
+                .DownloadString("https://www.reuters.com/finance/stocks/company-officers/" + stockTicker);
+            return res;
         }
 
         private static string Clean(string res)
