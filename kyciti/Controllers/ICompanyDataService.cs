@@ -1,4 +1,6 @@
-﻿namespace kyciti.Controllers
+﻿using kyciti.Models;
+
+namespace kyciti.Controllers
 {
     public interface ICompanyDataService
     {

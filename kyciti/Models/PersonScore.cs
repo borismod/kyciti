@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using kyciti.Engine;
 
-namespace kyciti.Controllers
+namespace kyciti.Models
 {
     public class PersonScore
     {

@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.1.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Google.Apis, Version=1.32.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.32.2\lib\net45\Google.Apis.dll</HintPath>
       <Private>True</Private>
@@ -231,17 +239,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DependencyResolverConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CompanyData.cs" />
+    <Compile Include="Controllers\CashedCompanyDataRetriever.cs" />
+    <Compile Include="Controllers\CashedValuationService.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyDataService.cs" />
     <Compile Include="Controllers\CompanyKeyPersonsRetriever.cs" />
-    <Compile Include="Controllers\CompanyScore.cs" />
     <Compile Include="Controllers\CompanyValuationService.cs" />
     <Compile Include="Controllers\ICompanyDataService.cs" />
     <Compile Include="Controllers\ICompanyKeyPersonsRetriever.cs" />
@@ -250,7 +259,6 @@
     <Compile Include="Controllers\IKeyWordsProvier.cs" />
     <Compile Include="Controllers\ISearchEngineService.cs" />
     <Compile Include="Controllers\KeyWord.cs" />
-    <Compile Include="Controllers\PersonScore.cs" />
     <Compile Include="Controllers\ValuationController.cs" />
     <Compile Include="Engine\BingSearch.cs" />
     <Compile Include="Engine\HtmlSanitizer.cs" />
@@ -266,7 +274,11 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CompanyData.cs" />
+    <Compile Include="Models\CompanyScore.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PersonScore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />

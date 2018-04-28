@@ -1,4 +1,4 @@
-﻿namespace kyciti.Controllers
+﻿namespace kyciti.Models
 {
     public class CompanyScore
     {

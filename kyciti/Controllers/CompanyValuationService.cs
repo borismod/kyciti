@@ -3,10 +3,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using kyciti.CrunchBase;
 using kyciti.Engine;
+using kyciti.Models;
 
 namespace kyciti.Controllers
 {
-    public class CompanyValuationService
+    public interface ICompanyValuationService
+    {
+        Task<CompanyData> GetCompanyValuationData(string companyName);
+    }
+
+    // ReSharper disable once UnusedMember.Global
+    public class CompanyValuationService : ICompanyValuationService
     {
         private readonly ICompanyKeyPersonsRetriever _companyKeyPersonsRetriever;
         private readonly ICompanyStockTickerRetriever _companyStockTickerRetriever;
@@ -63,11 +70,12 @@ namespace kyciti.Controllers
                     if (passed) totalPassed++;
                 }
 
+                var nubmerOfFailed = keyPersons.Count() - totalPassed;
+
                 companyData.Scores.Add(new CompanyScore
                 {
                     Category = keyWordGroup.Key,
-                    // number of failed
-                    Score = keyPersons.Count() - totalPassed
+                    Score = nubmerOfFailed
                 });
             }
 

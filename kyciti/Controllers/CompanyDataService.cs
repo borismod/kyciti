@@ -1,7 +1,9 @@
 ﻿using System.Linq;
+using kyciti.Models;
 
 namespace kyciti.Controllers
 {
+    // ReSharper disable once UnusedMember.Global
     public class CompanyDataService : ICompanyDataService
     {
         private readonly ICompanyKeyPersonsRetriever _companyKeyPersonsRetriever;

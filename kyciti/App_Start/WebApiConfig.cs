@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Formatting;
+﻿using System.Net.Http.Formatting;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
-using Newtonsoft.Json.Serialization;
 using System.Net.Http.Headers;
+using Autofac.Integration.WebApi;
 
 namespace kyciti
 {
@@ -16,6 +12,10 @@ namespace kyciti
 
         public static void Register(HttpConfiguration config)
         {
+            var container = DependencyResolverConfig.ConfigureContainer();
+
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
@@ -24,6 +24,7 @@ namespace kyciti
 
             config.EnableCors();
 
+            
             // Web API routes
             config.MapHttpAttributeRoutes();
 
