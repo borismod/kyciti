@@ -4,7 +4,12 @@ using HtmlAgilityPack;
 
 namespace kyciti.Engine
 {
-    public class HtmlSanitizer
+    public interface IHtmlSanitizer
+    {
+        string SanitizeHtmlDocument(HtmlDocument document);
+    }
+
+    public class HtmlSanitizer : IHtmlSanitizer
     {
         private static readonly string[] BlackListNodeNames = {"script", "style", "#comment"};
         private static readonly string[] WhiteListNodeNames = {"strong", "em", "u"};

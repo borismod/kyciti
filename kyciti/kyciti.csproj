@@ -89,8 +89,16 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OpenNLP, Version=1.0.6211.31491, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenNLP.1.3.4\lib\net45\OpenNLP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Polly, Version=5.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Polly.5.9.0\lib\net45\Polly.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpEntropy, Version=1.0.6211.31255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenNLP.1.3.4\lib\net45\SharpEntropy.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -251,6 +259,8 @@
     <Compile Include="Engine\CrunchBaseModels.cs" />
     <Compile Include="Engine\KeyPerson.cs" />
     <Compile Include="Engine\SearchEngineResult.cs" />
+    <Compile Include="Engine\SentencesExtractor.cs" />
+    <Compile Include="Engine\TextSentenceSplitter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -269,6 +279,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EmbeddedResource Include="Engine\CrunchBase.json" />
+    <Content Include="Data\EnglishSD.nbin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

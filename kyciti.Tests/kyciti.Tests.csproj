@@ -63,6 +63,8 @@
     <Compile Include="Controllers\CompanyStockTickerRetrieverTests.cs" />
     <Compile Include="CrunchBase\CompanyDataRetrieverTests.cs" />
     <Compile Include="Engine\HtmlSanitizerTests.cs" />
+    <Compile Include="Engine\SentencesExtractorTests.cs" />
+    <Compile Include="Engine\TextSentenceSplitterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
