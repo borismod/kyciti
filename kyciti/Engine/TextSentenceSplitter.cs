@@ -18,7 +18,7 @@ namespace kyciti.Engine
         {
             var fullPath = Path.Combine(GetBinariesPath(), "Data", "EnglishSD.nbin");
 
-            SaveResourceToFile(fullPath);
+            SaveResourceToFile(fullPath, "kyciti.Data.EnglishSD.nbin");
 
             _maximumEntropySentenceDetector = new EnglishMaximumEntropySentenceDetector(fullPath);
         }
@@ -28,10 +28,16 @@ namespace kyciti.Engine
             return _maximumEntropySentenceDetector.SentenceDetect(text);
         }
 
-        private static void SaveResourceToFile(string fullPath)
+        private static void SaveResourceToFile(string fullPath, string resourceName)
         {
             var assembly = typeof(TextSentenceSplitter).Assembly;
-            var resourceName = "kyciti.Data.EnglishSD.nbin";
+
+            var directoryName = new FileInfo(fullPath).Directory.FullName;
+            
+            if (!Directory.Exists(resourceName))
+            {
+                Directory.CreateDirectory(directoryName);
+            }
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (var fileStream = File.Create(fullPath))
