@@ -298,9 +298,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EmbeddedResource Include="Engine\CrunchBase.json" />
-    <Content Include="Data\EnglishSD.nbin">
+    <EmbeddedResource Include="Data\EnglishSD.nbin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

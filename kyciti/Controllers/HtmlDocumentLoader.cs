@@ -14,7 +14,6 @@ namespace kyciti.Controllers
     public class HtmlDocumentLoader : IHtmlDocumentLoader
     {
         private readonly ILog _log;
-        private readonly SecuredWebClient _securedyWebClient = new SecuredWebClient();
 
         public HtmlDocumentLoader(ILog log)
         {
@@ -30,7 +29,8 @@ namespace kyciti.Controllers
 
             try
             {
-                string html = _securedyWebClient.DownloadString(new Uri(url));
+                SecuredWebClient securedWebClient = new SecuredWebClient();
+                string html = securedWebClient.DownloadString(new Uri(url));
                 var htmlDocument = new HtmlDocument();
                 htmlDocument.LoadHtml(html);
                 return htmlDocument;
