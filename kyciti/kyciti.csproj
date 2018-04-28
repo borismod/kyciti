@@ -252,6 +252,7 @@
     <Compile Include="Controllers\CompanyDataService.cs" />
     <Compile Include="Controllers\CompanyKeyPersonsRetriever.cs" />
     <Compile Include="Controllers\CompanyValuationService.cs" />
+    <Compile Include="Controllers\HtmlDocumentLoader.cs" />
     <Compile Include="Controllers\ICompanyDataService.cs" />
     <Compile Include="Controllers\ICompanyKeyPersonsRetriever.cs" />
     <Compile Include="Controllers\CompanyStockTickerRetriever.cs" />
@@ -259,6 +260,10 @@
     <Compile Include="Controllers\IKeyWordsProvier.cs" />
     <Compile Include="Controllers\ISearchEngineService.cs" />
     <Compile Include="Controllers\KeyWord.cs" />
+    <Compile Include="Controllers\PersonEvaluationService.cs" />
+    <Compile Include="Controllers\SecuredWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controllers\ValuationController.cs" />
     <Compile Include="Engine\BingSearch.cs" />
     <Compile Include="Engine\HtmlSanitizer.cs" />

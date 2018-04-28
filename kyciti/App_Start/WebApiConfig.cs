@@ -1,5 +1,4 @@
-﻿using System.Net.Http.Formatting;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using System.Net.Http.Headers;
 using Autofac.Integration.WebApi;
@@ -8,8 +7,6 @@ namespace kyciti
 {
     public static class WebApiConfig
     {
-        public static MediaTypeFormatter XmlFormatter { get; private set; }
-
         public static void Register(HttpConfiguration config)
         {
             var container = DependencyResolverConfig.ConfigureContainer();
@@ -24,7 +21,6 @@ namespace kyciti
 
             config.EnableCors();
 
-            
             // Web API routes
             config.MapHttpAttributeRoutes();
 
