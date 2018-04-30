@@ -8,40 +8,32 @@ using log4net;
 
 namespace kyciti.Controllers
 {
-    public interface ICompanyValuationService
-    {
-        Task<CompanyData> GetCompanyValuationData(string companyName);
-    }
-
     // ReSharper disable once UnusedMember.Global
-    [IgnoreRegistration]
-    public class CompanyValuationService : ICompanyValuationService
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class InnocentCompanyValuationService : ICompanyValuationService
     {
         private readonly ICompanyKeyPersonsRetriever _companyKeyPersonsRetriever;
         private readonly ICompanyStockTickerRetriever _companyStockTickerRetriever;
         private readonly IKeyWordsProvier _keyWordsProvier;
-        private readonly IPersonEvaluationService _personEvaluationService;
         private readonly ILog _log;
 
-        public CompanyValuationService(ICompanyKeyPersonsRetriever companyKeyPersonsRetriever,
-            ICompanyStockTickerRetriever companyStockTickerRetriever,
-            IKeyWordsProvier keyWordsProvier,
-            IPersonEvaluationService personEvaluationService, 
+        public InnocentCompanyValuationService(ICompanyKeyPersonsRetriever companyKeyPersonsRetriever, 
+            ICompanyStockTickerRetriever companyStockTickerRetriever, 
+            IKeyWordsProvier keyWordsProvier, 
             ILog log)
         {
             _companyKeyPersonsRetriever = companyKeyPersonsRetriever;
             _companyStockTickerRetriever = companyStockTickerRetriever;
             _keyWordsProvier = keyWordsProvier;
-            _personEvaluationService = personEvaluationService;
             _log = log;
         }
 
-        public async Task<CompanyData> GetCompanyValuationData(string companyName)
+        public Task<CompanyData> GetCompanyValuationData(string companyName)
         {
             _log.Info($"Start valuation for {companyName}");
 
             var stockTicker = _companyStockTickerRetriever.GetCompanyStockTicker(companyName);
-            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).Take(10).ToArray();
+            var keyPersons = _companyKeyPersonsRetriever.GetKeyPersons(stockTicker).ToArray();
             var keyWords = _keyWordsProvier.GetKeyWords();
 
             var companyData = new CompanyData
@@ -52,37 +44,24 @@ namespace kyciti.Controllers
 
             foreach (var keyWordGroup in keyWords.GroupBy(k => k.Category))
             {
-                var totalPassed = 0;
                 foreach (var keyPerson in keyPersons)
                 {
                     var person = GetPerson(keyPerson, companyData);
 
-                    var results = new List<SearchEngineResult>();
-                    foreach (var keyWord in keyWordGroup)
-                    {
-                        List<SearchEngineResult> collection = await _personEvaluationService.EvaluatePersonAsync(keyPerson.Name, keyWord.Word);
-                        results.AddRange(collection);
-                    }
-
-                    var passed = !results.Any();
                     var personScore = new PersonScore
                     {
                         Category = keyWordGroup.Key,
-                        Passed = passed,
-                        Sources = results
+                        Passed = true,
+                        Sources = new List<SearchEngineResult>()
                     };
 
                     person.Scores.Add(personScore);
-
-                    if (passed) totalPassed++;
                 }
-
-                var nubmerOfFailed = keyPersons.Count() - totalPassed;
 
                 companyData.Scores.Add(new CompanyScore
                 {
                     Category = keyWordGroup.Key,
-                    Score = nubmerOfFailed
+                    Score = 0
                 });
             }
 
@@ -97,7 +76,7 @@ namespace kyciti.Controllers
 
             _log.Info($"Finish valuation for {companyName} score {companyData.TotalScore}");
 
-            return companyData;
+            return Task.FromResult(companyData);
         }
 
         private static Person GetPerson(KeyPerson keyPerson, CompanyData companyData)

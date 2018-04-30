@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.Linq;
+using Autofac;
 using Autofac.Integration.WebApi;
 using kyciti.Controllers;
 using kyciti.Engine;
@@ -12,6 +13,7 @@ namespace kyciti
             var containerBuilder = new ContainerBuilder();
 
             containerBuilder.RegisterAssemblyTypes(typeof(HtmlSanitizer).Assembly)
+                .Where(t => ! t.GetCustomAttributes(typeof(IgnoreRegistrationAttribute), true).Any() )
                 .AsImplementedInterfaces();
 
             containerBuilder.RegisterType<CashedValuationService>()

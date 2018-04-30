@@ -15,7 +15,7 @@ namespace kyciti
     public class ValuationInitializer : IValuationInitializer
     {
         private readonly ICashedValuationService _cashedValuationService;
-        private ILog _log;
+        private readonly ILog _log;
 
         private static readonly string[] OrganizationNames = { "bezeq", "apple", "microsoft", "siemens", "volkswagen", "comverse", "citigroup" };
 

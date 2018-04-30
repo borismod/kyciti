@@ -18,8 +18,8 @@ namespace kyciti
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var valuationInitializer = container.Resolve<IValuationInitializer>();
-            valuationInitializer.Initialize();
+            //var valuationInitializer = container.Resolve<IValuationInitializer>();
+            //valuationInitializer.Initialize();
         }
     }
 }

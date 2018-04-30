@@ -33,6 +33,18 @@ namespace kyciti.Tests
         }
 
         [Test]
+        public void ConfigureContainer_ResolveICompanyValuationService_ResolvedInnocentCompanyValuationService()
+        {
+            // Act
+            var configureContainer = DependencyResolverConfig.ConfigureContainer();
+
+            var companyValuationService = configureContainer.Resolve<ICompanyValuationService>();
+
+            // Assert
+            companyValuationService.Should().BeOfType<InnocentCompanyValuationService>();
+        }
+
+        [Test]
         public void ConfigureContainer_ResolveCashedCompanyDataRetriever_Resolved()
         {
             // Act

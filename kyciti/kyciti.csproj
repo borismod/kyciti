@@ -258,7 +258,9 @@
     <Compile Include="Controllers\ICompanyKeyPersonsRetriever.cs" />
     <Compile Include="Controllers\CompanyStockTickerRetriever.cs" />
     <Compile Include="Controllers\ICompanyStockTickerRetriever.cs" />
+    <Compile Include="Controllers\IgnoreRegistrationAttribute.cs" />
     <Compile Include="Controllers\IKeyWordsProvier.cs" />
+    <Compile Include="Controllers\InnocentCompanyValuationService.cs" />
     <Compile Include="Controllers\ISearchEngineService.cs" />
     <Compile Include="Controllers\KeyWord.cs" />
     <Compile Include="Controllers\PersonEvaluationService.cs" />
