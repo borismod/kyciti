@@ -303,6 +303,9 @@
     <EmbeddedResource Include="Data\EnglishSD.nbin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Data\bezeq.json" />
+    <EmbeddedResource Include="Data\siemens.json" />
+    <EmbeddedResource Include="Data\volkswagen.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

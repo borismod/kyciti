@@ -14,6 +14,7 @@ namespace kyciti.Controllers
     }
 
     // ReSharper disable once UnusedMember.Global
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class CompanyValuationService : ICompanyValuationService
     {
         private readonly ICompanyKeyPersonsRetriever _companyKeyPersonsRetriever;

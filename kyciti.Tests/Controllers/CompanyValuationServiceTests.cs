@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System.IO;
+using System.Threading.Tasks;
 using Autofac;
-using FluentAssertions;
 using kyciti.Controllers;
+using kyciti.Models;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace kyciti.Tests.Controllers
@@ -9,17 +11,24 @@ namespace kyciti.Tests.Controllers
     [TestFixture]
     public class CompanyValuationServiceTests
     {
-        [Test]
+        [TestCase("siemens")]
+        [TestCase("volkswagen")]
+        [TestCase("comverse")]
+        [TestCase("bezeq")]
         [Ignore("Integration")]
-        public async Task Test()
+        public async Task EvaluateCompany(string companyName)
         {
             var configureContainer = DependencyResolverConfig.ConfigureContainer();
 
             var companyValuationService = configureContainer.Resolve<ICompanyValuationService>();
 
-            var companyValuationData = await companyValuationService.GetCompanyValuationData("citigroup");
+            CompanyData companyValuationData = await companyValuationService.GetCompanyValuationData(companyName);
+            var serializer = new JsonSerializer {Formatting = Formatting.Indented};
 
-            companyValuationData.TotalScore.Should().Be(0);
+            using (var file = File.CreateText($@"c:\work\github\kyciti-api\{companyName}.json"))
+            {
+                serializer.Serialize(file, companyValuationData);
+            }
         }
     }
 }

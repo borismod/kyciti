@@ -1,0 +1,313 @@
+{
+  "Category": "Corporate",
+  "Name": "siemens",
+  "Members": [
+    {
+      "Name": "Rosa Maria Garcia Garcia",
+      "Title": "Chairman of the Board",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Markus Tacke",
+      "Title": "Chief Executive Officer, Executive Director",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Andrew Hall",
+      "Title": "Financial General Director",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": false,
+          "Sources": [
+            {
+              "Title": "Serious fraud and money laundering | Citadel Chambers ...",
+              "Url": "http://www.citadelchambers.com/practice-areas/Fraud",
+              "Snippet": "Serious fraud and money laundering. ... Andrew Fisher QC. ... William Andreae-Jones QC. Andrew Hall QC. Michael Grey. David Bright. Benjamin Nicholls. Anthony Warner."
+            }
+          ]
+        },
+        {
+          "Category": "fraud",
+          "Passed": false,
+          "Sources": [
+            {
+              "Title": "Andrew Hall Music reviews and fraud and scam reports ...",
+              "Url": "https://review.easycounter.com/reputation-Andrew-Hall-Music-safe",
+              "Snippet": "We checked Andrew Hall Music for scam and fraud. Our comprehensive Andrewhallmusic.co.uk review will show you if Andrewhallmusic is legit and whether it is safe."
+            }
+          ]
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": false,
+          "Sources": [
+            {
+              "Title": "Andrew Hall QC | Doughty Street Chambers",
+              "Url": "https://www.doughtystreet.co.uk/barristers/profile/andrew-hall-qc",
+              "Snippet": "Andrew Hall QC a.hall@ ... Andrew served for a number of years as a member of ... Two men cleared of planning to travel to Syria to engage in terror. Andrew Hall QC ..."
+            }
+          ]
+        }
+      ],
+      "TotalScore": 3
+    },
+    {
+      "Name": "David Mesonero Molina",
+      "Title": "General Director of Corporate Development and Responsible for Integration",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Mark Albenze",
+      "Title": "General Director-Services",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Ricardo Chocarro Melgosa",
+      "Title": "General Director-Onshore",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Michael Hannibal",
+      "Title": "General Director-Offshore",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Felix Zarza Yabar",
+      "Title": "Director of Internal Audit",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Carlos Rodriguez-Quiroga Menendez",
+      "Title": "Secretary of the Board, Executive Director",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Juan Antonio Garcia Fuente",
+      "Title": "Non Member Vice Secretary of Board",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    }
+  ],
+  "Scores": [
+    {
+      "Category": "money laundering",
+      "Score": 1.0
+    },
+    {
+      "Category": "fraud",
+      "Score": 1.0
+    },
+    {
+      "Category": "corruption",
+      "Score": 0.0
+    },
+    {
+      "Category": "terror",
+      "Score": 1.0
+    }
+  ],
+  "TotalScore": 7.5
+}
