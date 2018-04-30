@@ -3,6 +3,45 @@
   "Name": "siemens",
   "Members": [
     {
+      "Name": "Andrew Hall",
+      "Title": "Financial General Director",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": false,
+          "Sources": [
+            {
+              "Title": "Serious fraud and money laundering | Citadel Chambers ...",
+              "Url": "http://www.citadelchambers.com/practice-areas/Fraud",
+              "Snippet": "Serious fraud and money laundering. ... Andrew Fisher QC. ... William Andreae-Jones QC. Andrew Hall QC. Michael Grey. David Bright. Benjamin Nicholls. Anthony Warner."
+            }
+          ]
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": false,
+          "Sources": [
+            {
+              "Title": "Andrew Hall QC | Doughty Street Chambers",
+              "Url": "https://www.doughtystreet.co.uk/barristers/profile/andrew-hall-qc",
+              "Snippet": "Andrew Hall QC a.hall@ ... Andrew served for a number of years as a member of ... Two men cleared of planning to travel to Syria to engage in terror. Andrew Hall QC ..."
+            }
+          ]
+        }
+      ],
+      "TotalScore": 2
+    },
+    {
       "Name": "Rosa Maria Garcia Garcia",
       "Title": "Chairman of the Board",
       "Scores": [
@@ -55,51 +94,6 @@
         }
       ],
       "TotalScore": 0
-    },
-    {
-      "Name": "Andrew Hall",
-      "Title": "Financial General Director",
-      "Scores": [
-        {
-          "Category": "money laundering",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Serious fraud and money laundering | Citadel Chambers ...",
-              "Url": "http://www.citadelchambers.com/practice-areas/Fraud",
-              "Snippet": "Serious fraud and money laundering. ... Andrew Fisher QC. ... William Andreae-Jones QC. Andrew Hall QC. Michael Grey. David Bright. Benjamin Nicholls. Anthony Warner."
-            }
-          ]
-        },
-        {
-          "Category": "fraud",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Andrew Hall Music reviews and fraud and scam reports ...",
-              "Url": "https://review.easycounter.com/reputation-Andrew-Hall-Music-safe",
-              "Snippet": "We checked Andrew Hall Music for scam and fraud. Our comprehensive Andrewhallmusic.co.uk review will show you if Andrewhallmusic is legit and whether it is safe."
-            }
-          ]
-        },
-        {
-          "Category": "corruption",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "terror",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Andrew Hall QC | Doughty Street Chambers",
-              "Url": "https://www.doughtystreet.co.uk/barristers/profile/andrew-hall-qc",
-              "Snippet": "Andrew Hall QC a.hall@ ... Andrew served for a number of years as a member of ... Two men cleared of planning to travel to Syria to engage in terror. Andrew Hall QC ..."
-            }
-          ]
-        }
-      ],
-      "TotalScore": 3
     },
     {
       "Name": "David Mesonero Molina",
@@ -298,7 +292,7 @@
     },
     {
       "Category": "fraud",
-      "Score": 1.0
+      "Score": 0.0
     },
     {
       "Category": "corruption",
@@ -309,5 +303,5 @@
       "Score": 1.0
     }
   ],
-  "TotalScore": 7.5
+  "TotalScore": 5.0
 }

@@ -3,131 +3,6 @@
   "Name": "volkswagen",
   "Members": [
     {
-      "Name": "Hans Putsch",
-      "Title": "Chairman of the Supervisory Board, Chief Executive Officer",
-      "Scores": [
-        {
-          "Category": "money laundering",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "fraud",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "corruption",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "terror",
-          "Passed": true,
-          "Sources": []
-        }
-      ],
-      "TotalScore": 0
-    },
-    {
-      "Name": "Matthias Mueller",
-      "Title": "Chairman of the Management Board",
-      "Scores": [
-        {
-          "Category": "money laundering",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "fraud",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Weingut Matthias Mueller reviews and fraud and scam ...",
-              "Url": "https://review.easycounter.com/weingut-matthiasmueller-scam-report",
-              "Snippet": "We checked Weingut Matthias Mueller for scam and fraud. Our comprehensive Weingut-matthiasmueller.de review will show you if Weingut-matthiasmueller is legit and whether it is safe."
-            },
-            {
-              "Title": "Matthiasmueller.info review. Matthias Mueller reviews and ...",
-              "Url": "https://review.easycounter.com/Matthias-Mueller-safe",
-              "Snippet": "We checked Matthias Mueller for scam and fraud. Our comprehensive Matthiasmueller.info review will show you if Matthiasmueller is legit and whether it is safe."
-            }
-          ]
-        },
-        {
-          "Category": "corruption",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "terror",
-          "Passed": true,
-          "Sources": []
-        }
-      ],
-      "TotalScore": 1
-    },
-    {
-      "Name": "Joerg Hofmann",
-      "Title": "Deputy Chairman of the Supervisory Board",
-      "Scores": [
-        {
-          "Category": "money laundering",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "fraud",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Joerg Hofmann reviews and fraud and scam reports. Is Joerg ...",
-              "Url": "https://review.easycounter.com/joerg-hofmann-scam-report",
-              "Snippet": "We checked Joerg Hofmann for scam and fraud. Our comprehensive Joerg-hofmann.com review will show you if Joerg-hofmann is legit and whether it is safe."
-            }
-          ]
-        },
-        {
-          "Category": "corruption",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "terror",
-          "Passed": true,
-          "Sources": []
-        }
-      ],
-      "TotalScore": 1
-    },
-    {
-      "Name": "Frank Witter",
-      "Title": "Member of the Board of Management responsible for Finance and Controlling",
-      "Scores": [
-        {
-          "Category": "money laundering",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "fraud",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "corruption",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "terror",
-          "Passed": true,
-          "Sources": []
-        }
-      ],
-      "TotalScore": 0
-    },
-    {
       "Name": "Kurt Michels",
       "Title": "Chief Compliance Officer",
       "Scores": [
@@ -169,6 +44,152 @@
         }
       ],
       "TotalScore": 1
+    },
+    {
+      "Name": "Herbert Diess",
+      "Title": "Chairman of the Brand Board of Management of Volkswagen Passenger Cars",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": false,
+          "Sources": [
+            {
+              "Title": "Herbert Diess | The Irish Times",
+              "Url": "https://www.irishtimes.com/topics/topics-7.1213540?article=true&tag_person=Herbert+Diess",
+              "Snippet": "Get up to date with the latest news and stories about the person Herbert Diess ... German prosecutors raided Porsche and Audi on Wednesday for suspected “fraud ..."
+            },
+            {
+              "Title": "VW must face U.S. investor lawsuit in emissions scandal ...",
+              "Url": "https://www.reuters.com/article/us-volkswagen-emissions/judge-says-volkswagen-must-face-u-s-investor-lawsuits-over-diesel-emissions-idUSKBN14P01R",
+              "Snippet": "VW must face U.S. investor lawsuit in emissions scandal. David ... VW brand chief Herbert Diess to have the ... against securities fraud” the ..."
+            }
+          ]
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 1
+    },
+    {
+      "Name": "Hans Putsch",
+      "Title": "Chairman of the Supervisory Board, Chief Executive Officer",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Matthias Mueller",
+      "Title": "Chairman of the Management Board",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Joerg Hofmann",
+      "Title": "Deputy Chairman of the Supervisory Board",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
+    },
+    {
+      "Name": "Frank Witter",
+      "Title": "Member of the Board of Management responsible for Finance and Controlling",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 0
     },
     {
       "Name": "Karlheinz Blessing",
@@ -235,14 +256,8 @@
         },
         {
           "Category": "fraud",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Larry Thompson (@LarryT1940) | Twitter",
-              "Url": "https://twitter.com/LarryT1940",
-              "Snippet": "Larry Thompson ‏ @LarryT1940 11 ... Democrats start screaming that there is no voter fraud! But, ask that people show ID’s to vote and they can’t change the ..."
-            }
-          ]
+          "Passed": true,
+          "Sources": []
         },
         {
           "Category": "corruption",
@@ -255,7 +270,7 @@
           "Sources": []
         }
       ],
-      "TotalScore": 1
+      "TotalScore": 0
     },
     {
       "Name": "Dirk Coers",
@@ -283,54 +298,6 @@
         }
       ],
       "TotalScore": 0
-    },
-    {
-      "Name": "Herbert Diess",
-      "Title": "Chairman of the Brand Board of Management of Volkswagen Passenger Cars",
-      "Scores": [
-        {
-          "Category": "money laundering",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "fraud",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Herbert Diess | The Irish Times",
-              "Url": "https://www.irishtimes.com/topics/topics-7.1213540?article=true&tag_person=Herbert+Diess",
-              "Snippet": "Get up to date with the latest news and stories about the person Herbert Diess ... German prosecutors raided Porsche and Audi on Wednesday for suspected “fraud ..."
-            },
-            {
-              "Title": "VW must face U.S. investor lawsuit in emissions scandal ...",
-              "Url": "https://www.reuters.com/article/us-volkswagen-emissions/judge-says-volkswagen-must-face-u-s-investor-lawsuits-over-diesel-emissions-idUSKBN14P01R",
-              "Snippet": "VW must face U.S. investor lawsuit in emissions scandal. David ... VW brand chief Herbert Diess to have the ... against securities fraud” the ..."
-            },
-            {
-              "Title": "VAG's emission fraud - VW cheats in emission test - Page ...",
-              "Url": "http://www.team-bhp.com/forum/international-automotive-scene/168355-vags-emission-fraud-vw-cheats-emission-test-59.html",
-              "Snippet": "Team-BHP > BHP Worldwide > The International Automotive Scene: VAG's emission fraud ... is planning to replace CEO Matthias Mueller with Herbert Diess, ..."
-            },
-            {
-              "Title": "Judge Orders Volkswagen to Face Investor Lawsuit in ...",
-              "Url": "http://fortune.com/2017/01/05/volkswagen-emissions-scandal-california-lawsuit/",
-              "Snippet": "Volkswagen and ex-CEO Martin Winterkorn must defend a California lawsuit over the company's diesel emissions scandal, ... Herbert Diess to ... fraud ” the lawsuits ..."
-            }
-          ]
-        },
-        {
-          "Category": "corruption",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "terror",
-          "Passed": true,
-          "Sources": []
-        }
-      ],
-      "TotalScore": 1
     }
   ],
   "Scores": [
@@ -340,7 +307,7 @@
     },
     {
       "Category": "fraud",
-      "Score": 4.0
+      "Score": 1.0
     },
     {
       "Category": "corruption",
@@ -351,5 +318,5 @@
       "Score": 0.0
     }
   ],
-  "TotalScore": 12.5
+  "TotalScore": 5.0
 }

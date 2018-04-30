@@ -95,6 +95,8 @@ namespace kyciti.Controllers
             var maxRisk = companyData.Members.Count * companyData.Scores.Count;
             companyData.TotalScore = 100.0 *  totalFailures / maxRisk;
 
+            companyData.Members = companyData.Members.OrderByDescending(m => m.TotalScore).ToList();
+
             _log.Info($"Finish valuation for {companyName} score {companyData.TotalScore}");
 
             return companyData;

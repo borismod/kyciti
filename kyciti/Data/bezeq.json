@@ -91,22 +91,44 @@
         },
         {
           "Category": "terror",
+          "Passed": true,
+          "Sources": []
+        }
+      ],
+      "TotalScore": 3
+    },
+    {
+      "Name": "Amir Nachlieli",
+      "Title": "Vice President, General Counsel",
+      "Scores": [
+        {
+          "Category": "money laundering",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "fraud",
+          "Passed": true,
+          "Sources": []
+        },
+        {
+          "Category": "corruption",
           "Passed": false,
           "Sources": [
             {
-              "Title": "Telecom giant Bezeq slapped with NIS 30 million antitrust ...",
-              "Url": "https://www.timesofisrael.com/telecom-giant-bezeq-slapped-with-nis-30-million-antitrust-fine/",
-              "Snippet": "Stella Handler has been replaced by an interim CEO while she remains under ... Factions say terror attack a response to 'Zionist crimes' and US recognition of ..."
-            },
-            {
-              "Title": "Bezeq announces new interim CEO to replace Stella Handler ...",
-              "Url": "https://www.timesofisrael.com/bezeq-announces-new-interim-ceo-to-replace-stella-handler-amid-probe/",
-              "Snippet": "Bezeq announces new interim CEO to replace Stella Handler amid probe ... US justices rule Israeli victims cannot sue terror-financing Arab Bank."
+              "Title": "Bezeq The Israeli Telecommunication Corp. Ltd ...",
+              "Url": "http://relationshipscience.com/organization/bezeq-the-israeli-telecommunication-corp-ltd-267923",
+              "Snippet": "Israeli police question Netanyahu in third corruption case Subscribe now to see full news coverage. Executives ... Amir Nachlieli. Vice President & Legal Counsel."
             }
           ]
+        },
+        {
+          "Category": "terror",
+          "Passed": true,
+          "Sources": []
         }
       ],
-      "TotalScore": 4
+      "TotalScore": 1
     },
     {
       "Name": "Yakov Paz",
@@ -173,14 +195,8 @@
         },
         {
           "Category": "fraud",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Danny Oz reviews and fraud and scam reports. Danny.oz.au ...",
-              "Url": "https://review.easycounter.com/danny.oz.au-report",
-              "Snippet": "We checked Danny Oz for scam and fraud. Our comprehensive Danny.oz.au review will show you if Danny.oz is legit and whether it is safe."
-            }
-          ]
+          "Passed": true,
+          "Sources": []
         },
         {
           "Category": "corruption",
@@ -193,7 +209,7 @@
           "Sources": []
         }
       ],
-      "TotalScore": 1
+      "TotalScore": 0
     },
     {
       "Name": "Ron Eilon",
@@ -304,39 +320,6 @@
       "TotalScore": 0
     },
     {
-      "Name": "Amir Nachlieli",
-      "Title": "Vice President, General Counsel",
-      "Scores": [
-        {
-          "Category": "money laundering",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "fraud",
-          "Passed": true,
-          "Sources": []
-        },
-        {
-          "Category": "corruption",
-          "Passed": false,
-          "Sources": [
-            {
-              "Title": "Bezeq The Israeli Telecommunication Corp. Ltd ...",
-              "Url": "http://relationshipscience.com/organization/bezeq-the-israeli-telecommunication-corp-ltd-267923",
-              "Snippet": "Israeli police question Netanyahu in third corruption case Subscribe now to see full news coverage. Executives ... Amir Nachlieli. Vice President & Legal Counsel."
-            }
-          ]
-        },
-        {
-          "Category": "terror",
-          "Passed": true,
-          "Sources": []
-        }
-      ],
-      "TotalScore": 1
-    },
-    {
       "Name": "Gil Rosen",
       "Title": "Vice President-Marketing & Innovation",
       "Scores": [
@@ -371,7 +354,7 @@
     },
     {
       "Category": "fraud",
-      "Score": 2.0
+      "Score": 1.0
     },
     {
       "Category": "corruption",
@@ -379,8 +362,8 @@
     },
     {
       "Category": "terror",
-      "Score": 1.0
+      "Score": 0.0
     }
   ],
-  "TotalScore": 15.0
+  "TotalScore": 10.0
 }

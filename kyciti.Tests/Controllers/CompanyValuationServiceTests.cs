@@ -13,9 +13,8 @@ namespace kyciti.Tests.Controllers
     {
         [TestCase("siemens")]
         [TestCase("volkswagen")]
-        [TestCase("comverse")]
         [TestCase("bezeq")]
-        [Ignore("Integration")]
+        //[Ignore("Integration")]
         public async Task EvaluateCompany(string companyName)
         {
             var configureContainer = DependencyResolverConfig.ConfigureContainer();

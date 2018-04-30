@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using kyciti.Engine;
@@ -14,6 +16,8 @@ namespace kyciti.Controllers
     // ReSharper disable once UnusedMember.Global
     public class PersonEvaluationService : IPersonEvaluationService
     {
+        private static readonly string[] DomainsBlacklist = { "review.easycounter.com", "twitter.com" };
+
         private readonly IHtmlDocumentLoader _htmlDocumentLoader;
         private readonly ISearchEngineService _searchEngineService;
         private readonly IHtmlSanitizer _htmlSanitizer;
@@ -30,7 +34,16 @@ namespace kyciti.Controllers
         public async Task<List<SearchEngineResult>> EvaluatePersonAsync(string personFullName, string evaluationCategory)
         {
             var searchEngineResults = await _searchEngineService.Search(personFullName, evaluationCategory);
-            return searchEngineResults.Where(r => HasRelevantSentences(personFullName, evaluationCategory, r)).ToList();
+            return searchEngineResults
+                .Where(NotInDomainBlacklist)
+                .Where(r => HasRelevantSentences(personFullName, evaluationCategory, r)).ToList();
+        }
+
+        private bool NotInDomainBlacklist(SearchEngineResult searchEngineResult)
+        {
+            var host = new Uri(searchEngineResult.Url).Host;
+            var notInDomainBlacklist = !DomainsBlacklist.Contains(host);
+            return notInDomainBlacklist;
         }
 
         private bool HasRelevantSentences(string personFullName, string evaluationCategory,
