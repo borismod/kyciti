@@ -8,9 +8,14 @@ using log4net;
 
 namespace kyciti.Controllers
 {
+    public interface IInnocentCompanyValuationService
+    {
+        Task<CompanyData> GetCompanyValuationData(string companyName);
+    }
+
     // ReSharper disable once UnusedMember.Global
     // ReSharper disable once ClassNeverInstantiated.Global
-    public class InnocentCompanyValuationService : ICompanyValuationService
+    public class InnocentCompanyValuationService : IInnocentCompanyValuationService
     {
         private readonly ICompanyKeyPersonsRetriever _companyKeyPersonsRetriever;
         private readonly ICompanyStockTickerRetriever _companyStockTickerRetriever;

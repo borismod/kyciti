@@ -15,7 +15,7 @@ namespace kyciti.Tests.Controllers
             // Act
             var configureContainer = DependencyResolverConfig.ConfigureContainer();
 
-            var companyValuationService = configureContainer.Resolve<ICompanyValuationService>();
+            var companyValuationService = configureContainer.Resolve<IInnocentCompanyValuationService>();
             var companyValuationData = await companyValuationService.GetCompanyValuationData("citigroup");
 
             // Assert

@@ -16,18 +16,18 @@ namespace kyciti.Controllers
         private readonly ConcurrentDictionary<string, CompanyData> _companyDatas =
             new ConcurrentDictionary<string, CompanyData>(StringComparer.OrdinalIgnoreCase);
 
-        private readonly ICompanyValuationService _companyValuationService;
+        private readonly IInnocentCompanyValuationService _innocentCompanyValuationService;
 
-        public CashedValuationService(ICompanyValuationService companyValuationService)
+        public CashedValuationService(IInnocentCompanyValuationService innocentCompanyValuationService)
         {
-            _companyValuationService = companyValuationService;
+            _innocentCompanyValuationService = innocentCompanyValuationService;
         }
 
         public async Task<CompanyData> GetCachedValudationData(string companyName)
         {
             if (!_companyDatas.ContainsKey(companyName))
             {
-                var companyData = await _companyValuationService.GetCompanyValuationData(companyName);
+                var companyData = await _innocentCompanyValuationService.GetCompanyValuationData(companyName);
                 _companyDatas[companyName] = companyData;
             }
 

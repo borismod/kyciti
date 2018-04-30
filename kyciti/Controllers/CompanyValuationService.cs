@@ -14,7 +14,6 @@ namespace kyciti.Controllers
     }
 
     // ReSharper disable once UnusedMember.Global
-    [IgnoreRegistration]
     public class CompanyValuationService : ICompanyValuationService
     {
         private readonly ICompanyKeyPersonsRetriever _companyKeyPersonsRetriever;

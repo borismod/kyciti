@@ -41,7 +41,7 @@ namespace kyciti.Tests
             var companyValuationService = configureContainer.Resolve<ICompanyValuationService>();
 
             // Assert
-            companyValuationService.Should().BeOfType<InnocentCompanyValuationService>();
+            companyValuationService.Should().BeOfType<CompanyValuationService>();
         }
 
         [Test]
